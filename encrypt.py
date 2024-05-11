@@ -1,30 +1,24 @@
 import base64
-from hash import hash_string
-from password import Password
 
-def xor_encrypt(data, key):
-    key_length = len(key)
-    data_length = len(data)
-    encrypted_bytes = bytearray(data_length)
+class PasswordEncryptor:
+    def __init__(self, password):
+        self.password = password
 
-    for i in range(data_length):
-        key_index = i % key_length
-        encrypted_bytes[i] = data[i] ^ key[key_index].encode('utf-8')[0]
+    def xor_encrypt(self, data, key):
+        key_length = len(key)
+        encrypted_bytes = bytearray(len(data))
 
-    return bytes(encrypted_bytes)
+        for i in range(len(data)):
+            key_index = i % key_length
+            encrypted_bytes[i] = data[i] ^ key[key_index].encode('utf-8')[0]
 
-def write_encrypted_password():
-    encrypted_password = xor_encrypt(Password.encode('utf-8'), hash_string)
-    encoded_password = base64.b64encode(encrypted_password).decode('utf-8')
-    return encoded_password
+        return bytes(encrypted_bytes)
 
-def decode_password(encoded_password):
-    decoded_password = base64.b64decode(encoded_password)
-    decrypted_password = xor_encrypt(decoded_password, hash_string)
-    return decrypted_password.decode('utf-8')
+    def write_encrypted_password(self, hash_string):
+        encrypted_password = self.xor_encrypt(self.password.encode('utf-8'), hash_string)
+        return base64.b64encode(encrypted_password).decode('utf-8')
 
-encrypted_password = write_encrypted_password()
-print("Encrypted password:", encrypted_password)
-
-decrypted_password = decode_password(encrypted_password)
-print("Decrypted password:", decrypted_password)
+    def decode_password(self, encoded_password, hash_string):
+        decoded_password = base64.b64decode(encoded_password)
+        decrypted_password = self.xor_encrypt(decoded_password, hash_string)
+        return decrypted_password.decode('utf-8')
