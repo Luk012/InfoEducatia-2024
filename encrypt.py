@@ -5,12 +5,13 @@ class PasswordEncryptor:
         self.password = password
 
     def xor_encrypt(self, data, key):
-        key_length = len(key)
+        key_bytes = key.encode('utf-8')  
+        key_length = len(key_bytes)
         encrypted_bytes = bytearray(len(data))
 
         for i in range(len(data)):
             key_index = i % key_length
-            encrypted_bytes[i] = data[i] ^ key[key_index].encode('utf-8')[0]
+            encrypted_bytes[i] = data[i] ^ key_bytes[key_index]
 
         return bytes(encrypted_bytes)
 

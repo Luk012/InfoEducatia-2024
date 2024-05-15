@@ -1,35 +1,52 @@
 import cv2
+import hashlib
 import numpy as np
 from PIL import Image
-import string
 import time
 
 class CameraHasher:
     def __init__(self):
         self.cap = cv2.VideoCapture(0)
-        self.chars = string.punctuation + string.digits + string.ascii_letters
 
-    def process_image(self, image_array):
-        line_sum = np.sum(image_array, axis=1)
-        line_sum_prime = np.sum(line_sum, axis=1) if len(line_sum.shape) > 1 else line_sum
-        length = len(self.chars)
 
-        hash_result = []
-        for value in line_sum_prime:
-            digit = int(value % length)
-            hash_result.append(self.chars[digit])
+    def calculate_mean(self, pixels):
+        total = 0
+        count = 0
+        for row in pixels:
+            for value in row:
+                total += value
+                count +=1
+        return total/count
 
-        return ''.join(hash_result)
+    def ahash(self, image_array):
+        img = Image.fromarray(image_array)
+        img = img.resize((16, 16), Image.ANTIALIAS)
+        img = img.convert('L')
+        pixels = np.array(img)
+        avg = self.calculate_mean(pixels)
+        
+        diff = pixels > avg
+        binary_array = diff.flatten()
+        secure_hash = hashlib.sha256(binary_array)
+        return secure_hash.hexdigest()
+    
+    def save_processed_image(self, image_array, file_path='processed_image.png'):
+        img = Image.fromarray(image_array)
+        img = img.resize((16, 16), Image.ANTIALIAS)
+        img = img.convert('L')
+        img.save(file_path)  # Save the image to disk
+
+
 
     def capture_and_process(self):
         ret, frame = self.cap.read()
         if not ret:
             print("Failed to grab frame")
             return None
-        
         frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        img_pil = Image.fromarray(frame_rgb)
-        return self.process_image(np.array(img_pil))
+        self.save_processed_image(frame_rgb, "output.png")
+        print("ahash: ", self.ahash(frame_rgb))
+        return self.ahash(frame_rgb)
 
     def release_camera(self):
         self.cap.release()
