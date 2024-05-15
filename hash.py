@@ -20,7 +20,7 @@ class CameraHasher:
 
     def ahash(self, image_array):
         img = Image.fromarray(image_array)
-        img = img.resize((16, 16), Image.ANTIALIAS)
+        img = img.resize((16, 16))
         img = img.convert('L')
         pixels = np.array(img)
         avg = self.calculate_mean(pixels)
@@ -32,7 +32,8 @@ class CameraHasher:
     
     def save_processed_image(self, image_array, file_path='processed_image.png'):
         img = Image.fromarray(image_array)
-        img = img.resize((16, 16), Image.ANTIALIAS)
+        img.save("standard.png")
+        img = img.resize((16, 16))
         img = img.convert('L')
         img.save(file_path)  # Save the image to disk
 
