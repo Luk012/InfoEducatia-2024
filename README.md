@@ -79,10 +79,4 @@ Creează un branch nou (git checkout -b feature-branch).
 Fă modificările tale și commit (git commit -m 'Adaugă funcționalitate nouă').
 Fă push la branch (git push origin feature-branch).
 Deschide un Pull Request.
-Licență
 
-Acest proiect este licențiat sub Licența MIT - vezi fișierul LICENSE pentru detalii.
-
-Mulțumiri
-
-Mulțumiri speciale dezvoltatorilor bibliotecilor utilizate în acest proiect: Tkinter, Pillow, OpenCV, NumPy, și pyminizip.
