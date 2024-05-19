@@ -52,9 +52,6 @@ Proiectul conține următoarele fișiere:
 ### Generare ZIP
 - Creează arhive ZIP criptate ale fișierelor selectate.
 
-## Contribuții
-Contribuțiile sunt binevenite! Te rugăm să deschizi un pull request sau să raportezi probleme în secțiunea de issues.
-
 ## Autori
 - Luk012
 - 1Arkkusu
