@@ -17,6 +17,7 @@ FilePage = tk.Frame(root)
 EncryptPage = tk.Frame(root)
 DecryptPage = tk.Frame(root)
 DecryptFilePage = tk.Frame(root)
+GenerateZIP = tk.Frame(root)
 ImagePage = tk.Frame(root)
 
 MenuPage.grid(row = 0, column = 0, sticky = 'nsew')
@@ -24,6 +25,7 @@ FilePage.grid(row = 0, column = 0, sticky = 'nsew')
 EncryptPage.grid(row = 0, column = 0, sticky = 'nsew')
 DecryptPage.grid(row = 0, column = 0, sticky = 'nsew')
 DecryptFilePage.grid(row = 0, column = 0, sticky = 'nsew')
+GenerateZIP.grid(row=0, column=0, sticky= 'nsew')
 ImagePage.grid(row = 0, column = 0, sticky = 'nsew')
 root.rowconfigure(0, weight = 1)
 root.columnconfigure(0, weight = 1)
@@ -82,6 +84,14 @@ def switch_page(page):
 
 def remove_text(text_to_remove):
     text_to_remove.destroy()
+
+def upload_multiple_files():
+    global file_paths
+    file_paths = filedialog.askopenfilenames(
+        title="Select files"
+    )
+
+def generate_encrypted_zip():
 
 def upload_file():
     global file_path
@@ -165,6 +175,10 @@ hover_effect(switch_encryption_button, "#0e0f0f", '#131414')
 switch_decryption_button = tk.Button(MenuPage, text="Decryption", font=('Arial Bold', 25), background="#131414", fg='#5e6eff', borderwidth=0, command = lambda: switch_page(DecryptPage))
 switch_decryption_button.pack(padx = 100, pady = 50)
 hover_effect(switch_decryption_button, "#0e0f0f", '#131414')
+
+switch_zip_button = tk.Button(MenuPage, text="ZIP Files", font=('Arial Bold', 25), background="#131414", fg='#5e6eff', borderwidth=0, command = lambda: switch_page(GenerateZIP))
+switch_zip_button.pack(padx = 100, pady = 50)
+hover_effect(switch_zip_button, "#0e0f0f", '#131414')
 
 switch_image_button = tk.Button(MenuPage, text="Images", font=('Arial Bold', 25), background="#131414", fg='#5e6eff', borderwidth=0, command = lambda: switch_page(ImagePage))
 switch_image_button.pack(padx = 100, pady = 50)
@@ -321,6 +335,26 @@ hover_effect(decrypt_file_button, "#0e0f0f", '#131414')
 decrypt_file_back_button = tk.Button(DecryptFilePage, text="Back", font=('Arial Bold', 12), command= lambda: switch_page(MenuPage), background="#131414", fg='#5e6eff', borderwidth=0)
 decrypt_file_back_button.place(x = 10, y = 20)
 hover_effect(decrypt_file_back_button, "#0e0f0f", '#131414')
+
+#Generate ZIP Page
+
+generate_zip_bg_label = tk.Label(GenerateZIP, image = photo)
+generate_zip_bg_label.place(x=0, y=0, relwidth=1, relheight=1)
+
+generate_zip_label = tk.Label(GenerateZIP, text="Bioactive Encryption", font=('Arial Bold', 18), background='#131414', fg='#5e6eff', borderwidth=0)
+generate_zip_label.pack(padx=20, pady=20)
+
+upload_files_button = tk.Button(GenerateZIP, text="Upload Files", font=('Arial Bold', 25),command=upload_multiple_files, background='#131414', fg='#5e6eff', borderwidth=0)
+upload_files_button.pack(padx=20, pady=50)
+hover_effect(upload_files_button, "#0e0f0f", '#131414')
+
+generate_zip_button = tk.Button(GenerateZIP, text="Generate ZIP", font=('Arial Bold', 25),command= lambda: generate_encrypted_zip(), background='#131414', fg='#5e6eff', borderwidth=0)
+generate_zip_button.pack(padx=20, pady=50)
+hover_effect(generate_zip_button, "#0e0f0f", '#131414')
+
+zip_back_button = tk.Button(GenerateZIP, text="Back", font=('Arial Bold', 12), command= lambda: switch_page(MenuPage), background="#131414", fg='#5e6eff', borderwidth=0)
+zip_back_button.place(x=10, y=20)
+hover_effect(zip_back_button, "#0e0f0f", '#131414')
 
 #Image Page
 
