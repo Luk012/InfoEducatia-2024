@@ -116,6 +116,9 @@ def generate_encrypted_zip():
         password,
         5
     )
+    ZIP_completed = tk.Label(GenerateZIP, text="Protected ZIP Generated", font=('Arial Bold', 12), background="#131414", fg='#5e6eff', borderwidth=0)
+    ZIP_completed.pack(padx=20,pady=20)
+    root.after(2000, lambda: remove_text(ZIP_completed))
 
     encryptor = PasswordEncryptor(password)
     encrypted_password = encryptor.write_encrypted_password(current_hash)
@@ -378,21 +381,21 @@ generate_zip_bg_label.place(x=0, y=0, relwidth=1, relheight=1)
 generate_zip_label = tk.Label(GenerateZIP, text="Bioactive Encryption", font=('Arial Bold', 18), background='#131414', fg='#5e6eff', borderwidth=0)
 generate_zip_label.pack(padx=20, pady=20)
 
-zip_password_label = tk.Label(GenerateZIP, text="Enter Password:", font=('Arial Bold', 12), background="#131414", fg='#5e6eff', borderwidth=0)
+zip_password_label = tk.Label(GenerateZIP, text="Enter Password:", font=('Arial Bold', 14), background="#131414", fg='#5e6eff', borderwidth=0)
 zip_password_label.pack(pady=10)
-zip_password_entry = tk.Entry(GenerateZIP, font=('Arial', 12), show='*')
+zip_password_entry = tk.Entry(GenerateZIP, font=('Arial', 14), show='*', background="#131414", fg='#5e6eff', borderwidth=0)
 zip_password_entry.pack(pady=10)
 
-folder_name_label = tk.Label(GenerateZIP, text="Enter Folder Name:", font=('Arial Bold', 12), background="#131414", fg='#5e6eff', borderwidth=0)
+folder_name_label = tk.Label(GenerateZIP, text="Enter Folder Name:", font=('Arial Bold', 14), background="#131414", fg='#5e6eff', borderwidth=0)
 folder_name_label.pack(pady=10)
-folder_name_entry = tk.Entry(GenerateZIP, font=('Arial', 12))
+folder_name_entry = tk.Entry(GenerateZIP, font=('Arial', 14), background="#131414", fg='#5e6eff', borderwidth=0)
 folder_name_entry.pack(pady=10)
 
 upload_files_button = tk.Button(GenerateZIP, text="Upload Files", font=('Arial Bold', 25), command=upload_multiple_files, background='#131414', fg='#5e6eff', borderwidth=0)
 upload_files_button.pack(padx=20, pady=50)
 hover_effect(upload_files_button, "#0e0f0f", '#131414')
 
-selected_files_listbox = tk.Listbox(GenerateZIP, selectmode=tk.MULTIPLE, font=('Arial', 12), width=80, height=10)
+selected_files_listbox = tk.Listbox(GenerateZIP, selectmode=tk.MULTIPLE, font=('Arial', 12), width=80, height=10, background="#131414", fg='#5e6eff')
 selected_files_listbox.pack(pady=10)
 
 generate_zip_button = tk.Button(GenerateZIP, text="Generate ZIP", font=('Arial Bold', 25), command=generate_encrypted_zip, background='#131414', fg='#5e6eff', borderwidth=0)
