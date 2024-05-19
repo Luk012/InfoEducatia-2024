@@ -8,7 +8,6 @@ Proiectul conține următoarele fișiere:
 - `encrypt.py`: Conține clasele și funcțiile necesare pentru criptarea și decriptarea parolelor.
 - `hash.py`: Conține funcționalitatea pentru generarea hash-urilor din imagini.
 - `main.py`: Punctul de intrare al aplicației, care configurează GUI-ul și gestionează fluxul principal al aplicației.
-- `password.py`: Conține parola utilizată pentru criptare.
 
 ## Instalare
 1. Clonează acest repository:
@@ -21,7 +20,7 @@ Proiectul conține următoarele fișiere:
     ```
 3. Instalează pachetele necesare:
     ```bash
-    pip install -r requirements.txt
+    pip3 install pillow tkinter pyminizip
     ```
 
 ## Utilizare
