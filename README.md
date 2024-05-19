@@ -43,6 +43,7 @@ main.py: Fișierul principal care conține GUI-ul și logica aplicației.
 encrypt.py: Conține clasa PasswordEncryptor pentru criptarea și decriptarea parolelor.
 hash.py: Conține clasa CameraHasher pentru generarea hash-urilor bazate pe imagini.
 password.py: Conține o parolă de test pentru scopuri de testare.
+
 Clase și Metode
 
 PasswordEncryptor
