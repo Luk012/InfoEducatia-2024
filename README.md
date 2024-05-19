@@ -11,12 +11,12 @@ Proiectul conține următoarele fișiere:
 
 ## Instalare
 1. Clonează acest repository:
-    ```bash
-    git clone <repository-url>
+  ```bash
+    git clone https://github.com/Luk012/InfoEducatia-2024.git
     ```
 2. Navighează în directorul proiectului:
     ```bash
-    cd <repository-directory>
+    cd InfoEducatia-2024
     ```
 3. Instalează pachetele necesare:
     ```bash
