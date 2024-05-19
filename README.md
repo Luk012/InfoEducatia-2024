@@ -55,7 +55,7 @@ Proiectul conține următoarele fișiere:
 ## Contribuții
 Contribuțiile sunt binevenite! Te rugăm să deschizi un pull request sau să raportezi probleme în secțiunea de issues.
 
-## Autor
+## Autori
 - Luk012
 - 1Arkkusu
 
