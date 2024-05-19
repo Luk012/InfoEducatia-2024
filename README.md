@@ -20,7 +20,7 @@ Proiectul conține următoarele fișiere:
     ```
 3. Instalează pachetele necesare:
     ```bash
-    pip3 install pillow tkinter pyminizip
+    pip install -r requirements.txt
     ```
 
 ## Utilizare
