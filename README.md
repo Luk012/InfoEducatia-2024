@@ -29,7 +29,6 @@ Această aplicație oferă o interfață grafică pentru utilizator (GUI) pentru
 
 Rulează aplicația principală:
 
-sh
 Copy code
 python main.py
 GUI-ul se va deschide cu mai multe opțiuni:
