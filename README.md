@@ -24,7 +24,8 @@ Această aplicație oferă o interfață grafică pentru utilizator (GUI) pentru
 2. Instalează pachetele necesare folosind pip:
    ```sh
    pip install tkinter pillow opencv-python-headless numpy pyminizip
-Utilizare
+   
+## Utilizare
 
 Rulează aplicația principală:
 
