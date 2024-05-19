@@ -8,10 +8,12 @@ Proiectul conține următoarele fișiere:
 - `encrypt.py`: Conține clasele și funcțiile necesare pentru criptarea și decriptarea parolelor.
 - `hash.py`: Conține funcționalitatea pentru generarea hash-urilor din imagini.
 - `main.py`: Punctul de intrare al aplicației, care configurează GUI-ul și gestionează fluxul principal al aplicației.
+- `password.py`: Conține parola utilizată pentru criptare.
+- `requirements.txt`: Conține lista de pachete necesare pentru proiect.
 
 ## Instalare
 1. Clonează acest repository:
-  ```bash
+    ```bash
     git clone https://github.com/Luk012/InfoEducatia-2024.git
     ```
 2. Navighează în directorul proiectului:
@@ -33,7 +35,7 @@ Proiectul conține următoarele fișiere:
 
 ## Dependințe
 - Python 3.x
-- Tkinter
+- Tkinter (inclus în Python)
 - PIL (Pillow)
 - pyminizip
 
@@ -50,8 +52,11 @@ Proiectul conține următoarele fișiere:
 ### Generare ZIP
 - Creează arhive ZIP criptate ale fișierelor selectate.
 
+## Contribuții
+Contribuțiile sunt binevenite! Te rugăm să deschizi un pull request sau să raportezi probleme în secțiunea de issues.
+
 ## Autor
 - Luk012
-- 1Arekkusu
+- 1Arkkusu
 
 Mulțumim pentru utilizarea Bioactive Encryption!
