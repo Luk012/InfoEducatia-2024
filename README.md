@@ -38,6 +38,7 @@ Proiectul conține următoarele fișiere:
 - Tkinter (inclus în Python)
 - PIL (Pillow)
 - pyminizip
+- OpenCV
 
 ## Funcționalități
 ### Criptare
