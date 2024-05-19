@@ -8,7 +8,6 @@ Proiectul conține următoarele fișiere:
 - `encrypt.py`: Conține clasele și funcțiile necesare pentru criptarea și decriptarea parolelor.
 - `hash.py`: Conține funcționalitatea pentru generarea hash-urilor din imagini.
 - `main.py`: Punctul de intrare al aplicației, care configurează GUI-ul și gestionează fluxul principal al aplicației.
-- `password.py`: Conține parola utilizată pentru criptare.
 - `requirements.txt`: Conține lista de pachete necesare pentru proiect.
 
 ## Instalare
