@@ -53,8 +53,9 @@ def update_hash(widget):
     processed_image_label.config(image = processed_image)
     processed_image_label.image = processed_image
     encrypt_key_label.config(text = "Ecryption Key: " + current_hash)
-    widget.delete(0, tk.END)
-    widget.insert(0, current_hash)
+    if widget:
+        widget.delete(0, tk.END)
+        widget.insert(0, current_hash)
 
 def hover_effect(button, colorOnHover, colorOnLeave):
     button.bind("<Enter>", func=lambda e: button.config(background = colorOnHover))
@@ -342,10 +343,12 @@ image_back_button = tk.Button(ImagePage, text="Back", font=('Arial Bold', 12), c
 image_back_button.place(x=10, y=20)
 hover_effect(image_back_button, "#0e0f0f", '#131414')
 
-MenuPage.tkraise()
-
-generate_hash_button = tk.Button(ImagePage, text = "Generate New Hash", font=('Arial Black', 12), command = update_hash, background="#131414", fg='#5e6eff', borderwidth=0)
+generate_hash_button = tk.Button(ImagePage, text = "Generate New Hash", font=('Arial Black', 12), command = lambda: update_hash(None), background="#131414", fg='#5e6eff', borderwidth=0)
 generate_hash_button.pack(padx = 20, pady= 20 ,side = 'top')
 hover_effect(generate_hash_button, '#0e0f0f', '#131414')
+
+update_hash(None)
+
+MenuPage.tkraise()
 
 root.mainloop()
